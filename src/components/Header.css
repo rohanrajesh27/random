@@ -23,6 +23,31 @@
   margin-bottom: 1rem;
   color: var(--text-color);
   line-height: 1.1;
+  background: linear-gradient(135deg, var(--accent-chocolate-dark) 0%, var(--accent-chocolate) 50%, var(--accent-flower) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.header-title::before {
+  content: '🌹';
+  position: absolute;
+  left: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  opacity: 0.6;
+}
+
+.header-title::after {
+  content: '🌹';
+  position: absolute;
+  right: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  opacity: 0.6;
 }
 
 .header-subtitle {

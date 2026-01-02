@@ -1,0 +1,111 @@
+.healthcare-section {
+  padding: 6rem 2rem;
+  background: var(--bg-color);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease, background-color 0.3s ease;
+}
+
+.healthcare-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.healthcare-content {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.healthcare-title {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  background: linear-gradient(135deg, #3d2817 0%, #5c3a21 50%, #8b5a3c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .healthcare-title {
+  background: linear-gradient(135deg, #d4a574 0%, #c49a6a 50%, #b89060 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.healthcare-description {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--secondary-text);
+  line-height: 1.6;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.healthcare-icons {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.healthcare-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 18px;
+  background: var(--bg-secondary);
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.healthcare-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.icon-emoji {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.icon-label {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .healthcare-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .healthcare-title {
+    font-size: 2.5rem;
+  }
+
+  .healthcare-description {
+    font-size: 1.125rem;
+  }
+
+  .healthcare-icons {
+    gap: 1.5rem;
+  }
+
+  .healthcare-icon {
+    min-width: 100px;
+    padding: 1.5rem;
+  }
+
+  .icon-emoji {
+    font-size: 2.5rem;
+  }
+}
+

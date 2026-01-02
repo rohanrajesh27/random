@@ -46,10 +46,21 @@
   font-size: 5rem;
   font-weight: 600;
   letter-spacing: -0.05em;
-  color: var(--text-color);
+  color: var(--accent-chocolate);
   line-height: 1;
   margin-bottom: 0.5rem;
   transition: transform 0.3s ease;
+  background: linear-gradient(135deg, var(--accent-chocolate-dark) 0%, var(--accent-chocolate) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .countdown-number {
+  background: linear-gradient(135deg, var(--accent-chocolate-light) 0%, var(--accent-flower) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .countdown-number.pulse {
