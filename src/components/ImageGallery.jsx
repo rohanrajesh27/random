@@ -6,8 +6,10 @@ import './ImageGallery.css'
 // Dynamically import all images from assets folder using Vite's glob import
 const imageModules = import.meta.glob('/src/assets/*.{jpg,jpeg,JPG,JPEG,png,PNG,gif,GIF,webp,WEBP}', { eager: true })
 
-// Convert the modules to an array of image URLs
-const images = Object.values(imageModules).map(module => module.default)
+// Convert the modules to an array of image URLs, filtering out any undefined/null values
+const images = Object.values(imageModules)
+  .map(module => module?.default)
+  .filter(Boolean) // Remove any undefined/null values
 
 function ImageGallery() {
   const [isVisible, setIsVisible] = useState(false)
@@ -53,11 +55,16 @@ function ImageGallery() {
 function GalleryImage({ src, index, onClick }) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 700 + index * 30)
     return () => clearTimeout(timer)
   }, [index])
+
+  if (hasError) {
+    return null // Don't render images that fail to load
+  }
 
   return (
     <div
@@ -68,6 +75,10 @@ function GalleryImage({ src, index, onClick }) {
         src={src}
         alt={`Memory ${index + 1}`}
         onLoad={() => setIsLoaded(true)}
+        onError={() => {
+          console.warn(`Failed to load image: ${src}`)
+          setHasError(true)
+        }}
         className="gallery-image"
         loading="lazy"
       />
