@@ -1,6 +1,6 @@
 .image-gallery {
   padding: 6rem 2rem;
-  background: #f5f5f7;
+  background: var(--bg-secondary);
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease;
@@ -22,7 +22,7 @@
   letter-spacing: -0.03em;
   text-align: center;
   margin-bottom: 4rem;
-  color: #1d1d1f;
+  color: var(--text-color);
 }
 
 .gallery-grid {
@@ -35,7 +35,7 @@
   aspect-ratio: 1;
   border-radius: 18px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--bg-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -96,7 +96,7 @@
   right: 0;
   background: transparent;
   border: none;
-  color: #ffffff;
+  color: var(--bg-color);
   font-size: 3rem;
   cursor: pointer;
   width: 3rem;

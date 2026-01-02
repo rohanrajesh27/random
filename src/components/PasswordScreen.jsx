@@ -4,7 +4,7 @@ import BlurIn from './BlurIn'
 import { TextRevealWord } from './TextReveal'
 import './PasswordScreen.css'
 
-const CORRECT_PASSWORD = '8/22'
+const CORRECT_PASSWORD = '8/29'
 
 function PasswordScreen({ onAuth }) {
   const [password, setPassword] = useState('')

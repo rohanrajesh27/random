@@ -3,6 +3,7 @@ import PasswordScreen from './components/PasswordScreen'
 import CountdownPage from './components/CountdownPage'
 import GradientBackground from './components/GradientBackground'
 import LoadingSpinner from './components/LoadingSpinner'
+import DarkModeToggle from './components/DarkModeToggle'
 import './App.css'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
   return (
     <div className="app">
       <GradientBackground />
+      <DarkModeToggle />
       {!isAuthenticated ? (
         <PasswordScreen onAuth={handleAuth} />
       ) : (

@@ -1,8 +1,8 @@
 .countdown-page {
   min-height: 100vh;
-  background: #ffffff;
+  background: var(--bg-color);
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease, background-color 0.3s ease;
 }
 
 .countdown-page.visible {

@@ -21,14 +21,14 @@
   font-weight: 600;
   letter-spacing: -0.05em;
   margin-bottom: 1rem;
-  color: #1d1d1f;
+  color: var(--text-color);
   line-height: 1.1;
 }
 
 .header-subtitle {
   font-size: 1.5rem;
   font-weight: 400;
-  color: #86868b;
+  color: var(--secondary-text);
   letter-spacing: -0.01em;
 }
 

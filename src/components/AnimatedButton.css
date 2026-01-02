@@ -8,7 +8,7 @@
 
 .animated-button-primary {
   background: #0071e3;
-  color: #ffffff;
+  color: var(--bg-color);
   padding: 1rem 2rem;
   border-radius: 12px;
   font-size: 1.125rem;
