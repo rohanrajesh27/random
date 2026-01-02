@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
+import AnimatedButton from './AnimatedButton'
+import BlurIn from './BlurIn'
+import { TextRevealWord } from './TextReveal'
 import './PasswordScreen.css'
 
 const CORRECT_PASSWORD = '8/22'
@@ -36,7 +39,11 @@ function PasswordScreen({ onAuth }) {
     <div className="password-screen">
       <div className="password-container">
         <div className="password-content">
-          <h1 className="password-title">Welcome</h1>
+          <BlurIn delay={0}>
+            <h1 className="password-title">
+              <TextRevealWord text="Welcome" delay={0} />
+            </h1>
+          </BlurIn>
           <form onSubmit={handleSubmit} className="password-form">
             <input
               ref={inputRef}
@@ -46,9 +53,9 @@ function PasswordScreen({ onAuth }) {
               className={`password-input ${shake ? 'shake' : ''} ${error ? 'error' : ''}`}
               placeholder="Enter password"
             />
-            <button type="submit" className="password-button">
+            <AnimatedButton type="submit" variant="primary">
               Enter
-            </button>
+            </AnimatedButton>
             {error && (
               <div className="error-message">
                 Incorrect password. Please try again.

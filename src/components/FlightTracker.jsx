@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import BlurIn from './BlurIn'
+import AnimatedButton from './AnimatedButton'
 import './FlightTracker.css'
 
 const FLIGHT_DATE = new Date('2026-01-10T15:30:00').getTime()
@@ -48,7 +50,9 @@ function FlightTracker() {
   return (
     <section className={`flight-tracker ${isVisible ? 'visible' : ''}`}>
       <div className="tracker-content">
-        <h2 className="tracker-title">Live Flight Tracking</h2>
+        <BlurIn delay={0}>
+          <h2 className="tracker-title">Live Flight Tracking</h2>
+        </BlurIn>
         <div className="tracker-status">
           {flightStatus === 'in-flight' && (
             <StatusMessage
@@ -82,14 +86,18 @@ function FlightTracker() {
           </div>
         )}
         {showTracker && (
-          <a
-            href={`https://www.flightaware.com/live/flight/${FLIGHT_NUMBER}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="tracker-link"
-          >
-            Open Full Tracker
-          </a>
+          <BlurIn delay={400}>
+            <a
+              href={`https://www.flightaware.com/live/flight/${FLIGHT_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tracker-link"
+            >
+              <AnimatedButton variant="primary" onClick={(e) => {}}>
+                Open Full Tracker
+              </AnimatedButton>
+            </a>
+          </BlurIn>
         )}
       </div>
     </section>

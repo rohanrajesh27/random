@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import HoverCard from './HoverCard'
+import BlurIn from './BlurIn'
 import './ImageGallery.css'
 
 // Dynamically import all images from assets folder using Vite's glob import
@@ -23,15 +25,18 @@ function ImageGallery() {
   return (
     <section className={`image-gallery ${isVisible ? 'visible' : ''}`}>
       <div className="gallery-content">
-        <h2 className="gallery-title">Our Memories</h2>
+        <BlurIn delay={0}>
+          <h2 className="gallery-title">Our Memories</h2>
+        </BlurIn>
         <div className="gallery-grid">
           {images.map((image, index) => (
-            <GalleryImage
-              key={index}
-              src={image}
-              index={index}
-              onClick={() => setSelectedImage(image)}
-            />
+            <HoverCard key={index} className="gallery-card-wrapper">
+              <GalleryImage
+                src={image}
+                index={index}
+                onClick={() => setSelectedImage(image)}
+              />
+            </HoverCard>
           ))}
         </div>
       </div>

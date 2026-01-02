@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import PasswordScreen from './components/PasswordScreen'
 import CountdownPage from './components/CountdownPage'
+import GradientBackground from './components/GradientBackground'
+import LoadingSpinner from './components/LoadingSpinner'
 import './App.css'
 
 function App() {
@@ -22,11 +24,16 @@ function App() {
   }
 
   if (isLoading) {
-    return null
+    return (
+      <div className="app-loading">
+        <LoadingSpinner size="large" />
+      </div>
+    )
   }
 
   return (
     <div className="app">
+      <GradientBackground />
       {!isAuthenticated ? (
         <PasswordScreen onAuth={handleAuth} />
       ) : (

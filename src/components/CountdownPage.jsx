@@ -4,6 +4,8 @@ import FlightInfo from './FlightInfo'
 import FlightTracker from './FlightTracker'
 import ImageGallery from './ImageGallery'
 import Header from './Header'
+import ParticleBackground from './ParticleBackground'
+import ScrollReveal from './ScrollReveal'
 import './CountdownPage.css'
 
 function CountdownPage() {
@@ -15,11 +17,22 @@ function CountdownPage() {
 
   return (
     <div className={`countdown-page ${isVisible ? 'visible' : ''}`}>
-      <Header />
-      <CountdownTimer />
-      <FlightInfo />
-      <FlightTracker />
-      <ImageGallery />
+      <ParticleBackground particleCount={30} />
+      <ScrollReveal delay={0} direction="up">
+        <Header />
+      </ScrollReveal>
+      <ScrollReveal delay={100} direction="up">
+        <CountdownTimer />
+      </ScrollReveal>
+      <ScrollReveal delay={200} direction="up">
+        <FlightInfo />
+      </ScrollReveal>
+      <ScrollReveal delay={300} direction="up">
+        <FlightTracker />
+      </ScrollReveal>
+      <ScrollReveal delay={400} direction="up">
+        <ImageGallery />
+      </ScrollReveal>
     </div>
   )
 }

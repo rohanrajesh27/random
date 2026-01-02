@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { TextRevealWord } from './TextReveal'
+import BlurIn from './BlurIn'
 import './Header.css'
 
 function Header() {
@@ -11,8 +13,14 @@ function Header() {
   return (
     <header className={`header ${isVisible ? 'visible' : ''}`}>
       <div className="header-content">
-        <h1 className="header-title">Counting Down to You</h1>
-        <p className="header-subtitle">Saturday, January 10, 2026 at 6:00 PM</p>
+        <BlurIn delay={0}>
+          <h1 className="header-title">
+            <TextRevealWord text="Counting Down to You" delay={0} />
+          </h1>
+        </BlurIn>
+        <BlurIn delay={300}>
+          <p className="header-subtitle">Saturday, January 10, 2026 at 6:00 PM</p>
+        </BlurIn>
       </div>
     </header>
   )

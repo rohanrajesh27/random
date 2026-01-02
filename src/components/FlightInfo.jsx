@@ -29,13 +29,21 @@ function FlightInfo() {
   return (
     <section className={`flight-info ${isVisible ? 'visible' : ''}`}>
       <div className="flight-content">
-        <h2 className="flight-title">Your Flight Details</h2>
+        <BlurIn delay={0}>
+          <h2 className="flight-title">Your Flight Details</h2>
+        </BlurIn>
         <div className="flight-route">
-          <AirportDisplay airport={flightData.departure} type="departure" />
+          <BlurIn delay={100}>
+            <AirportDisplay airport={flightData.departure} type="departure" />
+          </BlurIn>
           <FlightArrow />
-          <AirportDisplay airport={flightData.arrival} type="arrival" />
+          <BlurIn delay={200}>
+            <AirportDisplay airport={flightData.arrival} type="arrival" />
+          </BlurIn>
         </div>
-        <FlightDetails flightData={flightData} />
+        <HoverCard>
+          <FlightDetails flightData={flightData} />
+        </HoverCard>
       </div>
     </section>
   )

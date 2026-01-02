@@ -1,0 +1,11 @@
+.blur-in {
+  filter: blur(10px);
+  opacity: 0;
+  transition: filter 0.8s ease, opacity 0.8s ease;
+}
+
+.blur-in.visible {
+  filter: blur(0);
+  opacity: 1;
+}
+
