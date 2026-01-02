@@ -42,3 +42,4 @@ function TextRevealWord({ text, delay = 0 }) {
 
 export { TextReveal, TextRevealWord }
 
+

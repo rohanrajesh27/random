@@ -5,12 +5,19 @@ import './FlightTracker.css'
 
 const FLIGHT_DATE = new Date('2026-01-10T15:30:00').getTime()
 const FLIGHT_NUMBER = 'AAL3265'
+const FLIGHT_DAY_START = new Date('2026-01-10T00:00:00').getTime() // Start of January 10, 2026
 
 function FlightTracker() {
   const [isVisible, setIsVisible] = useState(false)
   const [showTracker, setShowTracker] = useState(false)
   const [timeUntilFlight, setTimeUntilFlight] = useState(null)
   const [flightStatus, setFlightStatus] = useState('scheduled')
+
+  // Hide the entire component until January 10th
+  const now = new Date().getTime()
+  if (now < FLIGHT_DAY_START) {
+    return null
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 400)

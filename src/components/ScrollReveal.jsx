@@ -38,3 +38,4 @@ function ScrollReveal({ children, delay = 0, direction = 'up' }) {
 
 export default ScrollReveal
 
+
