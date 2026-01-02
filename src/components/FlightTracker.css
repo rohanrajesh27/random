@@ -1,0 +1,110 @@
+.flight-tracker {
+  padding: 6rem 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.flight-tracker.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tracker-content {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tracker-title {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin-bottom: 3rem;
+  color: #1d1d1f;
+}
+
+.tracker-status {
+  margin-bottom: 3rem;
+}
+
+.status-message {
+  animation: fadeIn 0.6s ease;
+}
+
+.status-text {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #1d1d1f;
+  margin-bottom: 0.5rem;
+}
+
+.status-subtext {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #86868b;
+}
+
+.status-message.active .status-text {
+  color: #0071e3;
+}
+
+.tracker-embed {
+  margin: 3rem 0;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease;
+}
+
+.tracker-iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  display: block;
+}
+
+.tracker-link {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: #0071e3;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  animation: fadeIn 0.8s ease;
+}
+
+.tracker-link:hover {
+  background: #0077ed;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .flight-tracker {
+    padding: 4rem 1.5rem;
+  }
+
+  .tracker-title {
+    font-size: 2.5rem;
+  }
+
+  .tracker-iframe {
+    height: 400px;
+  }
+}
+

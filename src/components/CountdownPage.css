@@ -1,0 +1,11 @@
+.countdown-page {
+  min-height: 100vh;
+  background: #ffffff;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.countdown-page.visible {
+  opacity: 1;
+}
+

@@ -1,0 +1,48 @@
+.header {
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header-content {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.header-title {
+  font-size: 4.5rem;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  margin-bottom: 1rem;
+  color: #1d1d1f;
+  line-height: 1.1;
+}
+
+.header-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #86868b;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .header-title {
+    font-size: 3rem;
+  }
+
+  .header-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
