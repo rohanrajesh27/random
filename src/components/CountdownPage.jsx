@@ -4,7 +4,6 @@ import FlightInfo from './FlightInfo'
 import FlightTracker from './FlightTracker'
 import ImageGallery from './ImageGallery'
 import Header from './Header'
-import HealthcareSection from './HealthcareSection'
 import ParticleBackground from './ParticleBackground'
 import FloralBackground from './FloralBackground'
 import ScrollReveal from './ScrollReveal'
@@ -29,9 +28,6 @@ function CountdownPage() {
       </ScrollReveal>
       <ScrollReveal delay={200} direction="up">
         <FlightInfo />
-      </ScrollReveal>
-      <ScrollReveal delay={250} direction="up">
-        <HealthcareSection />
       </ScrollReveal>
       <ScrollReveal delay={300} direction="up">
         <FlightTracker />
