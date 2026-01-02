@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useTheme } from '../contexts/ThemeContext'
 import './GradientBackground.css'
 
 function GradientBackground() {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 })
+  const { isDarkMode } = useTheme()
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -15,11 +17,15 @@ function GradientBackground() {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
+  const { isDarkMode } = useTheme()
+  
   return (
     <div 
       className="gradient-background"
       style={{
-        background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(0, 113, 227, 0.1) 0%, rgba(255, 255, 255, 0) 50%)`
+        background: isDarkMode
+          ? `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(0, 113, 227, 0.15) 0%, rgba(0, 0, 0, 0) 50%)`
+          : `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(0, 113, 227, 0.1) 0%, rgba(255, 255, 255, 0) 50%)`
       }}
     />
   )
