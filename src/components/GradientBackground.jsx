@@ -6,8 +6,6 @@ function GradientBackground() {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 })
   const { isDarkMode } = useTheme()
 
-  const { isDarkMode } = useTheme()
-
   useEffect(() => {
     const handleMouseMove = (e) => {
       const x = (e.clientX / window.innerWidth) * 100
