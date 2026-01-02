@@ -1,38 +1,20 @@
 import { useState, useEffect } from 'react'
 import './ImageGallery.css'
 
-// This would normally fetch from a directory, but for now we'll use a placeholder
-// You can add images to src/assets/images/ and they'll be imported here
-const IMAGE_PATTERNS = ['*.jpg', '*.jpeg', '*.png', '*.gif', '*.webp']
+// Dynamically import all images from assets folder using Vite's glob import
+const imageModules = import.meta.glob('/src/assets/*.{jpg,jpeg,JPG,JPEG,png,PNG,gif,GIF,webp,WEBP}', { eager: true })
+
+// Convert the modules to an array of image URLs
+const images = Object.values(imageModules).map(module => module.default)
 
 function ImageGallery() {
   const [isVisible, setIsVisible] = useState(false)
-  const [images, setImages] = useState([])
   const [selectedImage, setSelectedImage] = useState(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 600)
     return () => clearTimeout(timer)
   }, [])
-
-  useEffect(() => {
-    // Try to load images from public directory
-    // In a real app, you'd want to use an API or import them
-    loadImages()
-  }, [])
-
-  const loadImages = async () => {
-    try {
-      // Check if images directory exists and load images
-      // For now, we'll create a placeholder that shows when no images are found
-      // Users can add images to public/images/ folder
-      const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp']
-      // This is a placeholder - in production you'd fetch from an API
-      setImages([])
-    } catch (error) {
-      console.log('No images found or error loading images')
-    }
-  }
 
   if (images.length === 0) {
     return null // Don't show gallery if no images
@@ -68,7 +50,7 @@ function GalleryImage({ src, index, onClick }) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 700 + index * 50)
+    const timer = setTimeout(() => setIsVisible(true), 700 + index * 30)
     return () => clearTimeout(timer)
   }, [index])
 
@@ -82,6 +64,7 @@ function GalleryImage({ src, index, onClick }) {
         alt={`Memory ${index + 1}`}
         onLoad={() => setIsLoaded(true)}
         className="gallery-image"
+        loading="lazy"
       />
     </div>
   )
@@ -113,4 +96,3 @@ function ImageModal({ src, onClose }) {
 }
 
 export default ImageGallery
-
