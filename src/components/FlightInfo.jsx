@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import HoverCard from './HoverCard'
+import BlurIn from './BlurIn'
 import './FlightInfo.css'
 
 function FlightInfo() {
