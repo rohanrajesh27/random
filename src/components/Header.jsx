@@ -17,7 +17,7 @@ function Header() {
           <h1 className="header-title">Counting Down to You</h1>
         </BlurIn>
         <BlurIn delay={300}>
-          <p className="header-subtitle">Saturday, January 10, 2026 at 6:00 PM</p>
+          <p className="header-subtitle">Saturday, January 10, 2026 at 5:02 PM (CST)</p>
         </BlurIn>
       </div>
     </header>

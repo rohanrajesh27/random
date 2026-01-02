@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import './CountdownTimer.css'
 
-const TARGET_DATE = new Date('2026-01-10T18:00:00').getTime()
+// Flight lands at 5:02 PM CST (St. Louis) on January 10, 2026
+// CST is UTC-6, so 5:02 PM CST = 11:02 PM UTC = 2026-01-11T00:02:00Z (UTC)
+// Or using CST directly: 2026-01-10T17:02:00-06:00
+const TARGET_DATE = new Date('2026-01-10T17:02:00-06:00').getTime()
 
 function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState({
