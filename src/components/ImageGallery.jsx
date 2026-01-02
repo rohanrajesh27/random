@@ -1,38 +1,25 @@
 import { useState, useEffect } from 'react'
 import HoverCard from './HoverCard'
 import BlurIn from './BlurIn'
-import PhotoUpload from './PhotoUpload'
 import './ImageGallery.css'
 
 // Dynamically import all images from assets folder using Vite's glob import
 const imageModules = import.meta.glob('/src/assets/*.{jpg,jpeg,JPG,JPEG,png,PNG,gif,GIF,webp,WEBP}', { eager: true })
 
 // Convert the modules to an array of image URLs
-const staticImages = Object.values(imageModules).map(module => module.default)
+const images = Object.values(imageModules).map(module => module.default)
 
 function ImageGallery() {
   const [isVisible, setIsVisible] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
-  const [uploadedImages, setUploadedImages] = useState([])
-  const [allImages, setAllImages] = useState(staticImages)
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 600)
     return () => clearTimeout(timer)
   }, [])
 
-  useEffect(() => {
-    // Load uploaded photos from localStorage
-    const savedPhotos = JSON.parse(localStorage.getItem('uploadedPhotos') || '[]')
-    const uploadedUrls = savedPhotos.map(photo => photo.data)
-    setUploadedImages(uploadedUrls)
-    setAllImages([...staticImages, ...uploadedUrls])
-  }, [])
-
-  const handlePhotosAdded = (newPhotos) => {
-    const newUrls = newPhotos.map(photo => photo.data)
-    setUploadedImages(prev => [...prev, ...newUrls])
-    setAllImages(prev => [...prev, ...newUrls])
+  if (images.length === 0) {
+    return null // Don't show gallery if no images
   }
 
   return (
@@ -41,10 +28,8 @@ function ImageGallery() {
         <BlurIn delay={0}>
           <h2 className="gallery-title">Our Memories</h2>
         </BlurIn>
-        <PhotoUpload onPhotosAdded={handlePhotosAdded} />
-        {allImages.length > 0 && (
-          <div className="gallery-grid">
-            {allImages.map((image, index) => (
+        <div className="gallery-grid">
+          {images.map((image, index) => (
             <HoverCard key={index} className="gallery-card-wrapper">
               <GalleryImage
                 src={image}
@@ -53,8 +38,7 @@ function ImageGallery() {
               />
             </HoverCard>
           ))}
-          </div>
-        )}
+        </div>
       </div>
       {selectedImage && (
         <ImageModal
