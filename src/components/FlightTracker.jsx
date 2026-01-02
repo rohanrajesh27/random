@@ -93,9 +93,7 @@ function FlightTracker() {
               rel="noopener noreferrer"
               className="tracker-link"
             >
-              <AnimatedButton variant="primary" onClick={(e) => {}}>
-                Open Full Tracker
-              </AnimatedButton>
+              Open Full Tracker
             </a>
           </BlurIn>
         )}
